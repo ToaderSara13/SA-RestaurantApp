@@ -11,6 +11,6 @@ package com.mycompany.sa.restaurantapp;
 public class SARestaurantApp {
 
     public static void main(String[] args) {
-        System.out.println("test de functionare");
+        System.out.println("test");
     }
 }
