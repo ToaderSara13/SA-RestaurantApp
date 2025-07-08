@@ -8,16 +8,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnect {
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/myprojectdb"; // Replace with your DB name
-        String user = "root"; // Or your MySQL username
-        String password = "4Me2pass_"; // Your MySQL password
-
+    private static Connection connection;
+    
+    public static Connection getConnection() throws SQLException{
+        if (connection == null || connection.isClosed()) {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/myprojectdb", "root", "4Me2pass_");
+        }
+        return connection; 
+    }
+    public static void closeConnection() {
         try {
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println("connected successfully");
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+                System.out.println("Database connection closed.");
+            }
         } catch (SQLException e) {
-            System.out.println("test failed" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
