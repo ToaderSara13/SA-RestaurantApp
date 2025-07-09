@@ -27,7 +27,7 @@ public class SARestaurantApp extends JFrame{
     }
     private void initComponents() throws SQLException{
         
-        setTitle("Saden Games & Media");
+        setTitle("SA-RestaurantApp");
         setSize(1300, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);

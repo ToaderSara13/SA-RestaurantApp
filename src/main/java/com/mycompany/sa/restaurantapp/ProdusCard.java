@@ -40,6 +40,7 @@ public class ProdusCard extends JPanel{
         denumireLabel.setHorizontalAlignment(JLabel.CENTER);
         denumireLabel.setForeground(new Color(255, 114, 118));
         denumireLabel.setFont(new Font("Courier New", Font.BOLD, 16));
+        denumireLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         denumireLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         /*
         JTextPane denumirePane = new JTextPane();

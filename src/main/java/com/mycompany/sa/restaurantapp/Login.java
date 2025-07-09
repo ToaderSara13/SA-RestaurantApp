@@ -7,8 +7,11 @@ package com.mycompany.sa.restaurantapp;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -17,11 +20,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -32,14 +39,16 @@ import javax.swing.border.LineBorder;
 public class Login extends JPanel{
     private SARestaurantApp sara ;
     
-    private JLabel titlu = new JLabel("Welcome back!");
+    private JLabel titlu = new JLabel("Login");
     private JPanel loginForm = new JPanel();
     private JPanel loginPanel = new JPanel();
     private JPanel imaginePanel = new JPanel();
     private JLabel email = new JLabel("Email : ");
     private JTextField emailText = new JTextField("adresa de email");
     private JLabel parola = new JLabel("Parola :");
-    private JTextField parolaText = new JTextField("parola");
+    private JButton toggleParolaButton = new JButton("👁");
+    //private JTextField parolaText = new JTextField("parola");
+    private JPasswordField parolaText = new JPasswordField("parola");
     private JButton loginButton = new JButton("Login");
     private JLabel signUp = new JLabel("Don't have an account?");
     private JButton signUpButton = new JButton("Sign up!");
@@ -48,14 +57,15 @@ public class Login extends JPanel{
         this.sara = sara;
         initComponents();        
     }
+
     
-    private void initComponents(){
+       private void initComponents(){
         
         setLayout(null);
         
         FundalPanel fundal = null;
         try {
-            fundal = new FundalPanel("images/REST.png");
+            fundal = new FundalPanel("images/Poza_fundal.jpg");
         } catch (IOException ex) {
             System.out.println("Image not found!");
         } 
@@ -63,10 +73,30 @@ public class Login extends JPanel{
         fundal.setBounds(0,0,1300,700);
         add(fundal);
         
+        JLabel logoLabel = new JLabel();
+        logoLabel.setBounds(20, 20, 120, 120); // poziție și dimensiune (poți modifica)
+        try {
+                ImageIcon icon = new ImageIcon(getClass().getResource("/images/logo.png"));
+                Image image = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH); // redimensionare
+                logoLabel.setIcon(new ImageIcon(image));
+            } catch (Exception e) {
+        System.out.println("Logo not found!");
+    }
+        loginPanel.add(logoLabel); 
+
+         // 🔥 Adăugăm overlay pentru întunecare
+        OverlayPanel overlay = new OverlayPanel(new Color(0, 0, 0, 180)); // alpha 120 = semi-transparent
+        overlay.setBounds(0, 0, 1300, 700);
+        fundal.add(overlay);
+
+        JSeparator separator = new JSeparator(SwingConstants.VERTICAL);
+        separator.setBounds(495, 0, 2, 500);
+        loginForm.add(separator);
 
         //loginForm.setBounds(150, 75,1000,500);
         loginForm.setPreferredSize(new Dimension(1000, 500));
         loginForm.setLayout(null);
+        loginForm.setOpaque(false);
         loginForm.setVisible(true);
         loginForm.setBackground(Color.BLUE);
         fundal.add(loginForm);
@@ -81,7 +111,7 @@ public class Login extends JPanel{
         
         FundalPanel imaginePanel  = null;
         try {
-            imaginePanel = new FundalPanel("images/img.jpg");
+            imaginePanel = new FundalPanel("images/poza.jpg");
         } catch (IOException ex) {
             System.out.println("Image not found!");
         } 
@@ -89,53 +119,150 @@ public class Login extends JPanel{
         imaginePanel.setVisible(true);
         loginForm.add(imaginePanel);
         
-        titlu.setBounds(60, 50, 400, 50);
+        titlu.setBounds(200, 80, 400, 50);
         titlu.setVisible(true);
-        titlu.setFont(new Font("Courier New", Font.BOLD, 50));
+        titlu.setFont(new Font("Georgia", Font.BOLD, 45));
         titlu.setForeground(Color.WHITE);
         loginPanel.add(titlu);
         
         
-        email.setBounds(60, 135, 240, 50);
+        email.setBounds(60, 180, 240, 50);
         email.setVisible(true);
-        email.setFont(new Font("Courier New", Font.BOLD, 35));
+        email.setFont(new Font("Segoe UI", Font.BOLD, 30));
         email.setForeground(Color.WHITE);
         loginPanel.add(email);
+
         
         
-        emailText.setBounds(260, 140, 220, 40 );
+        emailText.setBounds(210, 185, 220, 40 );
         emailText.setVisible(true);
-        emailText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        emailText.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         emailText.setOpaque(false);
+        emailText.setBackground(new Color(205, 255, 255, 30));
+        emailText.setForeground(Color.WHITE);
         emailText.setBorder(BorderFactory.createCompoundBorder(emailText.getBorder(), new EmptyBorder(5, 10, 5, 10)));
-        emailText.addActionListener(goliretext(emailText));
+        emailText.addActionListener(goliretext(emailText));;
         loginPanel.add(emailText);
         
+        ///
         
-        parola.setBounds(60, 215, 240, 50);
+        emailText.addFocusListener(new FocusAdapter() {
+    @Override
+    public void focusGained(FocusEvent e) {
+        if (emailText.getText().equals("adresa de email")) {
+            emailText.setText("");
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        if (emailText.getText().isEmpty()) {
+            emailText.setText("adresa de email");
+        }
+    }
+});
+        ///
+        
+        parola.setBounds(60, 250, 240, 40);
         parola.setVisible(true);
-        parola.setFont(new Font("Courier New", Font.BOLD, 35));
+        parola.setFont(new Font("Segoe UI", Font.BOLD, 30));
         parola.setForeground(Color.WHITE);
         loginPanel.add(parola);
         
         
-        parolaText.setBounds(260, 220, 220, 40 );
-        parolaText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        parolaText.setBounds(210, 255, 220, 40 );
+        parolaText.setFont(new Font("Segoe UI",  Font.PLAIN, 18));
         parolaText.setVisible(true);
         parolaText.setOpaque(false);
+        parolaText.setBackground(new Color(255, 255, 255, 30));
+        parolaText.setForeground(Color.WHITE);
         parolaText.setBorder(BorderFactory.createCompoundBorder(parolaText.getBorder(), new EmptyBorder(5, 10, 5, 10)));
         parolaText.addActionListener(goliretext(parolaText));
         loginPanel.add(parolaText);
         
+        toggleParolaButton.setBounds(435, 255, 35, 35);
+        toggleParolaButton.setFocusPainted(false);
+        toggleParolaButton.setContentAreaFilled(false);
+        toggleParolaButton.setBorderPainted(false);
+        toggleParolaButton.setForeground(Color.WHITE);
+        toggleParolaButton.addActionListener(e -> {
+             if (parolaText.getEchoChar() == (char) 0) {
+          parolaText.setEchoChar('●');
+             } else {
+          parolaText.setEchoChar((char) 0);
+        }
+    });
+        loginPanel.add(toggleParolaButton);
+
         
-        loginButton.setBounds(220, 300, 100, 50);
-        loginButton.setFont(new Font("Arial", Font.ITALIC, 15));
-        loginButton.setVisible(true);
+     
+        parolaText.addFocusListener(new FocusAdapter() {
+    @Override
+    public void focusGained(FocusEvent e) {
+        if (String.valueOf(parolaText.getPassword()).equals("parola")) {
+            parolaText.setText("");
+            parolaText.setEchoChar('●'); 
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        if (String.valueOf(parolaText.getPassword()).isEmpty()) {
+            parolaText.setText("parola");
+            parolaText.setEchoChar((char) 0); 
+          }
+        }
+    });
+
+        loginButton.setBounds(180, 320, 140, 45);
+        loginButton.setFont(new Font("SansSerif", Font.BOLD, 14));
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setBackground(new Color(70, 130, 180));
+        loginButton.setFocusPainted(false);
+        loginButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
         loginButton.addMouseListener(loginButtonClick());
-        loginPanel.add(loginButton);
+        loginButton.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            loginButton.setBackground(new Color(65, 105, 225));
+        }
+        @Override
+        public void mouseExited(MouseEvent e) {
+            loginButton.setBackground(new Color(70, 130, 180));
+        }
+    });
+    loginPanel.add(loginButton);
         
         
-        signUp.setBounds(30, 400, 270, 50);
+     
+        signUp.setBounds(80, 390, 200, 30);
+        signUp.setFont(new Font("SansSerif", Font.BOLD, 14));
+        signUp.setForeground(new Color(200, 200, 200));
+        loginPanel.add(signUp);
+
+
+        signUpButton.setBounds(270, 385, 120, 35);
+        signUpButton.setFont(new Font("SansSerif", Font.BOLD, 14));
+        signUpButton.setForeground(Color.WHITE);
+        signUpButton.setBackground(new Color(100, 149, 237));
+        signUpButton.setFocusPainted(false);
+        signUpButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+        signUpButton.addMouseListener(signUpButtonClick());
+        signUpButton.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            signUpButton.setBackground(new Color(65, 105, 225));
+        }
+        @Override
+        public void mouseExited(MouseEvent e) {
+            signUpButton.setBackground(new Color(100, 149, 237));
+        }
+    });
+
+        loginPanel.add(signUpButton);
+
+
+        /*signUp.setBounds(30, 400, 270, 50);
         signUp.setVisible(true);
         signUp.setFont(new Font("Courier New", Font.BOLD, 15));
         signUp.setForeground(Color.WHITE);
@@ -148,9 +275,12 @@ public class Login extends JPanel{
         signUpButton.setVisible(true);
         signUpButton.addMouseListener(signUpButtonClick());
         loginPanel.add(signUpButton);
-
+*/
         
+    
     }
+
+    
     private ActionListener goliretext(JTextField a){
         return new ActionListener(){
             @Override
@@ -173,7 +303,8 @@ public class Login extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 String email = emailText.getText();
-                String password = parolaText.getText();
+                String password = String.valueOf(parolaText.getPassword());
+
                 try{  
                     Connection conn = DBConnect.getConnection();
                     PreparedStatement stmt = conn.prepareStatement("SELECT * FROM test WHERE email=? AND parola=?");
