@@ -44,7 +44,7 @@ public class SignUp extends JPanel {
             System.out.println("Image not found!");
         }
         if (fundal != null) {
-            fundal.setBounds(0, 0, 1300, 700);
+            fundal.setBounds(0, 0, 1300, 750);
             add(fundal);
 
             signUpForm.setPreferredSize(new Dimension(1000, 500));

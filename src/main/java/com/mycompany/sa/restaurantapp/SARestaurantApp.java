@@ -28,7 +28,7 @@ public class SARestaurantApp extends JFrame{
     private void initComponents() throws SQLException{
         
         setTitle("SA-RestaurantApp");
-        setSize(1300, 700);
+        setSize(1300, 750);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);

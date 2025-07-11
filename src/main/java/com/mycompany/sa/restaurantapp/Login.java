@@ -70,7 +70,7 @@ public class Login extends JPanel{
             System.out.println("Image not found!");
         } 
         fundal.setVisible(true);
-        fundal.setBounds(0,0,1300,700);
+        fundal.setBounds(0,0,1300,750);
         add(fundal);
         
         JLabel logoLabel = new JLabel();
