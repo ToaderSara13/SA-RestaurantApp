@@ -56,7 +56,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         denumireLabel.setVisible(true);
         denumireLabel.setBounds(20, 20, 200, 50);
-        denumireLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        denumireLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         denumireLabel.setForeground(new Color(102, 100, 204));
         add(denumireLabel);
         
@@ -64,7 +64,7 @@ public class AdaugaProdusPanel extends JPanel{
         denumireText.setBounds(225, 20, 230, 50);
         denumireText.setBackground(new Color(10,25,40));
         denumireText.setForeground(Color.CYAN);
-        denumireText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        denumireText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         denumireText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         denumireText.setVisible(true);
         add(denumireText);
@@ -72,7 +72,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         stocLabel.setVisible(true);
         stocLabel.setBounds(20, 90, 200, 50);
-        stocLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        stocLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         stocLabel.setForeground(new Color(102, 100, 204));
         add(stocLabel);
         
@@ -80,7 +80,7 @@ public class AdaugaProdusPanel extends JPanel{
         stocText.setBounds(225, 90, 230, 50);
         stocText.setBackground(new Color(10,25,40));
         stocText.setForeground(Color.CYAN);
-        stocText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        stocText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         stocText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         stocText.setVisible(true);
         add(stocText);
@@ -88,7 +88,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         pretLabel.setVisible(true);
         pretLabel.setBounds(20, 160, 200, 50);
-        pretLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        pretLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         pretLabel.setForeground(new Color(102, 100, 204));
         add(pretLabel);
         
@@ -96,7 +96,7 @@ public class AdaugaProdusPanel extends JPanel{
         pretText.setBounds(225, 160, 230, 50);
         pretText.setBackground(new Color(10,25,40));
         pretText.setForeground(Color.CYAN);
-        pretText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         pretText.setVisible(true);
         add(pretText);
@@ -104,7 +104,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         caloriiLabel.setVisible(true);
         caloriiLabel.setBounds(20, 230, 200, 50);
-        caloriiLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        caloriiLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         caloriiLabel.setForeground(new Color(102, 100, 204));
         add(caloriiLabel);
         
@@ -112,7 +112,7 @@ public class AdaugaProdusPanel extends JPanel{
         caloriiText.setBounds(225, 230, 230, 50);
         caloriiText.setBackground(new Color(10,25,40));
         caloriiText.setForeground(Color.CYAN);
-        caloriiText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        caloriiText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         caloriiText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         caloriiText.setVisible(true);
         add(caloriiText);
@@ -120,14 +120,14 @@ public class AdaugaProdusPanel extends JPanel{
         
         tipProdusLabel.setVisible(true);
         tipProdusLabel.setBounds(20, 300, 200, 50);
-        tipProdusLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        tipProdusLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         tipProdusLabel.setForeground(new Color(102, 100, 204));
         add(tipProdusLabel);
         
         
         tipCombo.setBounds(225, 300, 230, 50);
         tipCombo.setVisible(true);
-        tipCombo.setFont(new Font("Courier New", Font.ITALIC ,20));
+        tipCombo.setFont(new Font("Segoe UI", Font.ITALIC ,20));
         tipCombo.setBackground(new Color(10,25,40));
         tipCombo.setForeground(Color.CYAN);
         tipCombo.addActionListener(tipComboBox());
@@ -136,7 +136,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         stilLabel.setVisible(false);
         stilLabel.setBounds(20, 370, 200, 50);
-        stilLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        stilLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         stilLabel.setForeground(new Color(102, 100, 204));
         add(stilLabel);
         
@@ -144,7 +144,7 @@ public class AdaugaProdusPanel extends JPanel{
         stilText.setBounds(225, 370, 230, 50);
         stilText.setBackground(new Color(10,25,40));
         stilText.setForeground(Color.CYAN);
-        stilText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        stilText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         stilText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         stilText.setVisible(false);
         add(stilText);
@@ -152,7 +152,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         tipDesertLabel.setVisible(false);
         tipDesertLabel.setBounds(20, 370, 200, 50);
-        tipDesertLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        tipDesertLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         tipDesertLabel.setForeground(new Color(102, 100, 204));
         add(tipDesertLabel);
         
@@ -160,7 +160,7 @@ public class AdaugaProdusPanel extends JPanel{
         tipDesertText.setBounds(225, 370, 230, 50);
         tipDesertText.setBackground(new Color(10,25,40));
         tipDesertText.setForeground(Color.CYAN);
-        tipDesertText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        tipDesertText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         tipDesertText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         tipDesertText.setVisible(false);
         add(tipDesertText);
@@ -168,7 +168,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         tipBauturaLabel.setVisible(false);
         tipBauturaLabel.setBounds(20, 370, 200, 50);
-        tipBauturaLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        tipBauturaLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         tipBauturaLabel.setForeground(new Color(102, 100, 204));
         add(tipBauturaLabel);
         
@@ -176,7 +176,7 @@ public class AdaugaProdusPanel extends JPanel{
         tipBauturaText.setBounds(225, 370, 230, 50);
         tipBauturaText.setBackground(new Color(10,25,40));
         tipBauturaText.setForeground(Color.CYAN);
-        tipBauturaText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        tipBauturaText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         tipBauturaText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         tipBauturaText.setVisible(false);
         add(tipBauturaText);
@@ -186,7 +186,7 @@ public class AdaugaProdusPanel extends JPanel{
         caldaCheckBox.setVisible(false);
         caldaCheckBox.setOpaque(false);
         caldaCheckBox.setForeground(Color.CYAN);
-        caldaCheckBox.setFont(new Font("Courier New", Font.ITALIC, 25));
+        caldaCheckBox.setFont(new Font("Segoe UI", Font.ITALIC, 25));
         caldaCheckBox.setHorizontalTextPosition(SwingConstants.LEFT);
         caldaCheckBox.setOpaque(false);
         add(caldaCheckBox);
@@ -213,14 +213,14 @@ public class AdaugaProdusPanel extends JPanel{
         
         descriereLabel.setVisible(true);
         descriereLabel.setBounds(490, 290, 200, 50);
-        descriereLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        descriereLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         descriereLabel.setForeground(new Color(102, 100, 204));
         add(descriereLabel);
         
         
         descriereArea.setBackground(new Color(10,25,40));
-        descriereArea.setForeground(Color.CYAN);
-        descriereArea.setFont(new Font("Courier New", Font.ITALIC, 20));
+        descriereArea.setForeground(Color.WHITE);
+        descriereArea.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         descriereArea.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         descriereArea.setVisible(true);
         descriereArea.setLineWrap(true);
@@ -264,7 +264,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         
         salveazaProdus.setVisible(true);
-        salveazaProdus.setForeground(Color.CYAN);
+        salveazaProdus.setForeground(Color.WHITE);
         salveazaProdus.setFont(new Font("Arial", Font.BOLD, 15));
         salveazaProdus.setBackground(new Color(10,60,40));
         salveazaProdus.setOpaque(true);
@@ -276,7 +276,7 @@ public class AdaugaProdusPanel extends JPanel{
         add(salveazaProdus);
         
         cancelProdus.setVisible(true);
-        cancelProdus.setForeground(Color.CYAN);
+        cancelProdus.setForeground(Color.WHITE);
         cancelProdus.setFont(new Font("Arial", Font.BOLD, 15));
         cancelProdus.setBackground(new Color(80,25,40));
         cancelProdus.setOpaque(true);

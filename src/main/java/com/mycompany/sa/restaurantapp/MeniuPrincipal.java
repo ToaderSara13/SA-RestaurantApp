@@ -77,7 +77,7 @@ class MeniuPrincipal extends JPanel {
         baraDeCautare.setBounds(1000, 20, 220, 30);
         baraDeCautare.setBackground(new Color(10,25,40));
         baraDeCautare.setForeground(Color.CYAN);
-        baraDeCautare.setFont(new Font("Courier New", Font.ITALIC, 20));
+        baraDeCautare.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         baraDeCautare.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         baraDeCautare.setVisible(true);
         produsePanel.add(baraDeCautare);
@@ -95,12 +95,12 @@ class MeniuPrincipal extends JPanel {
         tipProdusLabel.setBounds(750, 20, 100, 30);                     
         tipProdusLabel.setVisible(true);
         tipProdusLabel.setForeground(new Color(102, 100, 204));
-        tipProdusLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        tipProdusLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         produsePanel.add(tipProdusLabel);
         
         tipProdus.setBounds(820,20,150,30);
         tipProdus.setVisible(true);
-        tipProdus.setFont(new Font("Arial", Font.BOLD ,15));
+        tipProdus.setFont(new Font("Segoe UI", Font.BOLD ,15));
         tipProdus.setBackground(new Color(30, 35, 60));
         tipProdus.setForeground(Color.WHITE);
         tipProdus.addActionListener(e -> {
@@ -113,12 +113,12 @@ class MeniuPrincipal extends JPanel {
         pretLabel.setBounds(470, 20, 100, 30);                     
         pretLabel.setVisible(true);
         pretLabel.setForeground(new Color(102, 100, 204));
-        pretLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         produsePanel.add(pretLabel);
         
         pretSortare.setBounds(570,20,150,30);
         pretSortare.setVisible(true);
-        pretSortare.setFont(new Font("Arial", Font.BOLD ,15));
+        pretSortare.setFont(new Font("Segoe UI", Font.BOLD ,15));
         pretSortare.setBackground(new Color(30, 35, 60));
         pretSortare.setForeground(Color.WHITE);
         
@@ -140,28 +140,28 @@ class MeniuPrincipal extends JPanel {
         produsePanel.add(filtrareMancarePanel);
         
         pretMinimMancareLabel.setBounds(5,0,190,35);
-        pretMinimMancareLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMinimMancareLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMinimMancareText.setBounds(5, 45 ,190,45);
         pretMinimMancareText.setBackground(new Color(10,25,40));
         pretMinimMancareText.setForeground(Color.CYAN);
-        pretMinimMancareText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMinimMancareText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMinimMancareText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         pretMaximMancareLabel.setBounds(5, 100 ,190,35);
-        pretMaximMancareLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMaximMancareLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMaximMancareText.setBounds(5, 145 ,190,45);
         pretMaximMancareText.setBackground(new Color(10,25,40));
         pretMaximMancareText.setForeground(Color.CYAN);
-        pretMaximMancareText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMaximMancareText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMaximMancareText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         checkBoxMancareItalian.setBounds(5, 200 ,190,40);
         checkBoxMancareItalian.setVisible(true);
         checkBoxMancareItalian.setOpaque(false);
         checkBoxMancareItalian.setForeground(Color.CYAN);
-        checkBoxMancareItalian.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxMancareItalian.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxMancareItalian.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxMancareItalian.setOpaque(false);
         
@@ -169,7 +169,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxMancareCoreean.setVisible(true);
         checkBoxMancareCoreean.setOpaque(false);
         checkBoxMancareCoreean.setForeground(Color.CYAN);
-        checkBoxMancareCoreean.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxMancareCoreean.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxMancareCoreean.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxMancareCoreean.setOpaque(false);
         
@@ -177,7 +177,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxMancareRomanesc.setVisible(true);
         checkBoxMancareRomanesc.setOpaque(false);
         checkBoxMancareRomanesc.setForeground(Color.CYAN);
-        checkBoxMancareRomanesc.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxMancareRomanesc.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxMancareRomanesc.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxMancareRomanesc.setOpaque(false);
         
@@ -209,28 +209,28 @@ class MeniuPrincipal extends JPanel {
         produsePanel.add(filtrareDesertPanel);
         
         pretMinimDesertLabel.setBounds(5,0,190,35);
-        pretMinimDesertLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMinimDesertLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMinimDesertText.setBounds(5, 45 ,190,45);
         pretMinimDesertText.setBackground(new Color(10,25,40));
         pretMinimDesertText.setForeground(Color.CYAN);
-        pretMinimDesertText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMinimDesertText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMinimDesertText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         pretMaximDesertLabel.setBounds(5, 100 ,190,35);
-        pretMaximDesertLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMaximDesertLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMaximDesertText.setBounds(5, 145 ,190,45);
         pretMaximDesertText.setBackground(new Color(10,25,40));
         pretMaximDesertText.setForeground(Color.CYAN);
-        pretMaximDesertText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMaximDesertText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMaximDesertText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         checkBoxPrajituri.setBounds(5, 200 ,190,40);
         checkBoxPrajituri.setVisible(true);
         checkBoxPrajituri.setOpaque(false);
         checkBoxPrajituri.setForeground(Color.CYAN);
-        checkBoxPrajituri.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxPrajituri.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxPrajituri.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxPrajituri.setOpaque(false);
         
@@ -238,7 +238,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxBudinci.setVisible(true);
         checkBoxBudinci.setOpaque(false);
         checkBoxBudinci.setForeground(Color.CYAN);
-        checkBoxBudinci.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxBudinci.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxBudinci.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxBudinci.setOpaque(false);
         
@@ -246,7 +246,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxInghetata.setVisible(true);
         checkBoxInghetata.setOpaque(false);
         checkBoxInghetata.setForeground(Color.CYAN);
-        checkBoxInghetata.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxInghetata.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxInghetata.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxInghetata.setOpaque(false);
         
@@ -274,28 +274,28 @@ class MeniuPrincipal extends JPanel {
         produsePanel.add(filtrareBauturaPanel);
         
         pretMinimBauturaLabel.setBounds(5,0,190,35);
-        pretMinimBauturaLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMinimBauturaLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMinimBauturaText.setBounds(5, 45 ,190,45);
         pretMinimBauturaText.setBackground(new Color(10,25,40));
         pretMinimBauturaText.setForeground(Color.CYAN);
-        pretMinimBauturaText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMinimBauturaText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMinimBauturaText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         pretMaximBauturaLabel.setBounds(5, 100 ,190,35);
-        pretMaximBauturaLabel.setFont(new Font("Courier New", Font.BOLD, 20));
+        pretMaximBauturaLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         
         pretMaximBauturaText.setBounds(5, 145 ,190,45);
         pretMaximBauturaText.setBackground(new Color(10,25,40));
         pretMaximBauturaText.setForeground(Color.CYAN);
-        pretMaximBauturaText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        pretMaximBauturaText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretMaximBauturaText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         checkBoxBauturi.setBounds(5, 200 ,190,40);
         checkBoxBauturi.setVisible(true);
         checkBoxBauturi.setOpaque(false);
         checkBoxBauturi.setForeground(Color.CYAN);
-        checkBoxBauturi.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxBauturi.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxBauturi.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxBauturi.setOpaque(false);
         
@@ -303,7 +303,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxCafea.setVisible(true);
         checkBoxCafea.setOpaque(false);
         checkBoxCafea.setForeground(Color.CYAN);
-        checkBoxCafea.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxCafea.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxCafea.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxCafea.setOpaque(false);
         
@@ -311,7 +311,7 @@ class MeniuPrincipal extends JPanel {
         checkBoxFrappe.setVisible(true);
         checkBoxFrappe.setOpaque(false);
         checkBoxFrappe.setForeground(Color.CYAN);
-        checkBoxFrappe.setFont(new Font("Courier New", Font.ITALIC, 17));
+        checkBoxFrappe.setFont(new Font("Segoe UI", Font.ITALIC, 17));
         checkBoxFrappe.setHorizontalTextPosition(SwingConstants.LEFT);
         checkBoxFrappe.setOpaque(false);
         
@@ -358,7 +358,7 @@ class MeniuPrincipal extends JPanel {
         
         adaugaProdusPanelButton.setVisible(true);
         adaugaProdusPanelButton.setForeground(Color.CYAN);
-        adaugaProdusPanelButton.setFont(new Font("Arial", Font.BOLD, 15));
+        adaugaProdusPanelButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         adaugaProdusPanelButton.setBackground(new Color(10,60,40));
         adaugaProdusPanelButton.setOpaque(true);
         adaugaProdusPanelButton.setContentAreaFilled(true);           
