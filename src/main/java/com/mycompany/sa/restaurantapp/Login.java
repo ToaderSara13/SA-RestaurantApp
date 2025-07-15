@@ -4,6 +4,7 @@
  */
 package com.mycompany.sa.restaurantapp;
 
+import com.mycompany.sa.restaurantapp.clase_produse.Utilizator;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -47,7 +48,6 @@ public class Login extends JPanel{
     private JTextField emailText = new JTextField("adresa de email");
     private JLabel parola = new JLabel("Parola :");
     private JButton toggleParolaButton = new JButton("👁");
-    //private JTextField parolaText = new JTextField("parola");
     private JPasswordField parolaText = new JPasswordField("parola");
     private JButton loginButton = new JButton("Login");
     private JLabel signUp = new JLabel("Don't have an account?");
@@ -307,14 +307,22 @@ public class Login extends JPanel{
 
                 try{  
                     Connection conn = DBConnect.getConnection();
-                    PreparedStatement stmt = conn.prepareStatement("SELECT * FROM test WHERE email=? AND parola=?");
+                    PreparedStatement stmt = conn.prepareStatement("SELECT * FROM utilizator WHERE email=? AND parola=?");
                     stmt.setString(1, email);
                     stmt.setString(2, password);
 
                     ResultSet rs = stmt.executeQuery();
                     if (rs.next()) {
                         System.out.println("Login successful!");
+                        int id = rs.getInt("id");
+                        String em = rs.getString("email");
+                        String psw = rs.getString("parola");
+                        String rol = rs.getString("rol");
+                        Sesiune.login(new Utilizator(id, em, psw, rol));
                         sara.showPanel("meniuPrincipal");
+                        MeniuPrincipal meniuPrincipal = (MeniuPrincipal) sara.getMeniuPrincipal();
+                        meniuPrincipal.incarcareUtilizator();
+                        meniuPrincipal.acasaPanelVizibil();
                         
                     } else {
                         System.out.println("Invalid credentials.");

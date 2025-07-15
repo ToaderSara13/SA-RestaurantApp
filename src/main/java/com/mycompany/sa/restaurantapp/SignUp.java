@@ -1,5 +1,6 @@
 package com.mycompany.sa.restaurantapp;
 
+import com.mycompany.sa.restaurantapp.clase_produse.Utilizator;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -7,7 +8,9 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -204,36 +207,33 @@ public class SignUp extends JPanel {
                 if (email.equals("adresa de email") || parola.equals("parola") || confirmare.equals("confirmare") ||
                     email.isEmpty() || parola.isEmpty() || confirmare.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Completează toate câmpurile!", "Câmpuri goale", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-
-                if (!email.matches("^\\S+@\\S+\\.\\S+$")) {
+                }else if (!email.matches("^\\S+@\\S+\\.\\S+$")) {
                     JOptionPane.showMessageDialog(null, "Email invalid!", "Email", JOptionPane.ERROR_MESSAGE);
                     return;
-                }
-
-                if (parola.length() < 6) {
+                }else if (parola.length() < 6) {
                     JOptionPane.showMessageDialog(null, "Parola trebuie să aibă minim 6 caractere!", "Parolă slabă", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-
-                if (!parola.equals(confirmare)) {
+                }else if (!parola.equals(confirmare)) {
                     JOptionPane.showMessageDialog(null, "Parolele nu coincid!", "Confirmare parolă", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                try {
-                    Connection conn = DBConnect.getConnection();
-                    PreparedStatement stmt = conn.prepareStatement("INSERT INTO test (email, parola) VALUES (?, ?)");
-                    stmt.setString(1, email);
-                    stmt.setString(2, parola);
-                    int rowsInserted = stmt.executeUpdate();
-                    if (rowsInserted > 0) {
-                        JOptionPane.showMessageDialog(null, "Înregistrare reușită!", "Succes", JOptionPane.INFORMATION_MESSAGE);
-                        sara.showPanel("meniuPrincipal");
+                }else {
+                    try {
+                        Connection conn = DBConnect.getConnection();
+                        PreparedStatement stmt = conn.prepareStatement("INSERT INTO utilizator (email, parola) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+                        stmt.setString(1, email);
+                        stmt.setString(2, parola);
+                        int rowsInserted = stmt.executeUpdate();
+                        if (rowsInserted > 0) {
+                            ResultSet generated = stmt.getGeneratedKeys();
+                            if(generated.next()){
+                                int id = generated.getInt(1);
+                                String rol = generated.getString("rol");
+                                Sesiune.login(new Utilizator(id, email, parola, rol));
+                            }
+                            JOptionPane.showMessageDialog(null, "Înregistrare reușită!", "Succes", JOptionPane.INFORMATION_MESSAGE);
+                            sara.showPanel("meniuPrincipal");
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Email deja înregistrat!", "Eroare", JOptionPane.ERROR_MESSAGE);
                     }
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Email deja înregistrat!", "Eroare", JOptionPane.ERROR_MESSAGE);
                 }
             }
         };

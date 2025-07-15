@@ -13,10 +13,18 @@ public class Bautura extends Produs{
     private String tip;
     private boolean calda;
     
-    public Bautura(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere, String tip, boolean calda) {
-        super(id, denumire, calorii, stoc, pret, imagine, descriere);
+    public Bautura(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere, String tipProdus, String tip, boolean calda) {
+        super(id, denumire, calorii, stoc, pret, imagine, descriere, tipProdus);
         this.tip = tip;
         this.calda = calda;
+    }
+
+    public String getTipProdus() {
+        return tipProdus;
+    }
+
+    public void setTipProdus(String tipProdus) {
+        this.tipProdus = tipProdus;
     }
 
     public String getTip() {

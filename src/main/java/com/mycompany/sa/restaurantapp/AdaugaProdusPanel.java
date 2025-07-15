@@ -11,6 +11,8 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -67,6 +69,7 @@ public class AdaugaProdusPanel extends JPanel{
         denumireText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         denumireText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         denumireText.setVisible(true);
+        denumireText.addFocusListener(golireText(denumireText));
         add(denumireText);
         
         
@@ -83,6 +86,7 @@ public class AdaugaProdusPanel extends JPanel{
         stocText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         stocText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         stocText.setVisible(true);
+        stocText.addFocusListener(golireText(stocText));
         add(stocText);
         
         
@@ -99,6 +103,7 @@ public class AdaugaProdusPanel extends JPanel{
         pretText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         pretText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         pretText.setVisible(true);
+        pretText.addFocusListener(golireText(pretText));
         add(pretText);
         
         
@@ -115,6 +120,7 @@ public class AdaugaProdusPanel extends JPanel{
         caloriiText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         caloriiText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         caloriiText.setVisible(true);
+        caloriiText.addFocusListener(golireText(caloriiText));
         add(caloriiText);
         
         
@@ -147,6 +153,7 @@ public class AdaugaProdusPanel extends JPanel{
         stilText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         stilText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         stilText.setVisible(false);
+        stilText.addFocusListener(golireText(stilText));
         add(stilText);
         
         
@@ -163,6 +170,7 @@ public class AdaugaProdusPanel extends JPanel{
         tipDesertText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         tipDesertText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         tipDesertText.setVisible(false);
+        tipDesertText.addFocusListener(golireText(tipDesertText));
         add(tipDesertText);
         
         
@@ -179,6 +187,7 @@ public class AdaugaProdusPanel extends JPanel{
         tipBauturaText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         tipBauturaText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         tipBauturaText.setVisible(false);
+        tipBauturaText.addFocusListener(golireText(tipBauturaText));
         add(tipBauturaText);
         
         
@@ -225,6 +234,7 @@ public class AdaugaProdusPanel extends JPanel{
         descriereArea.setVisible(true);
         descriereArea.setLineWrap(true);
         descriereArea.setWrapStyleWord(true);
+        descriereArea.addFocusListener(golireArea(descriereArea));
         
         
         descriereScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -434,9 +444,46 @@ private MouseAdapter cancelAction() {
     };
 }
 
+    private FocusListener golireArea(JTextArea a){
+        return new FocusListener(){
+            String string;
+        @Override
+        public void focusGained(FocusEvent e) {
+                if (a.getText().equalsIgnoreCase("Description")) { 
+                    string = a.getText();
+                    a.setText("");
+                }
+            
+        }
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (a.getText().trim().isEmpty()) {
+                    a.setText(string);
+                }
+            }
+        };
+    } 
     
-    
-    
+    private FocusListener golireText(JTextField a){
+        return new FocusListener(){
+            String string;
+        @Override
+        public void focusGained(FocusEvent e) {
+            for (String camp : campuri) {
+                if (camp.equalsIgnoreCase(a.getText())) { 
+                    camp = a.getText();
+                    a.setText("");
+                }
+            }
+        }
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (a.getText().trim().isEmpty()) {
+                    a.setText(string);
+                }
+            }
+    };
+    } 
     private MouseAdapter selectProductImageAction() {
         return new MouseAdapter() {
         @Override
@@ -539,4 +586,5 @@ private MouseAdapter cancelAction() {
     private JScrollPane descriereScroll = new JScrollPane(descriereArea);
     private JButton salveazaProdus = new JButton("Salveaza");
     private JButton cancelProdus = new JButton("Cancel");
+    String[] campuri = {"Denumire","Stoc","Pret","Calorii","Stil","tip Bautura","Descriere"};
 }

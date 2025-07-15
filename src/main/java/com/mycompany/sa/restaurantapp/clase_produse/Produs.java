@@ -26,8 +26,9 @@ public abstract class Produs {
     protected double pret;
     protected String imagine;
     protected String descriere;
+    protected String tipProdus;
 
-    public Produs(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere) {
+    public Produs(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere, String tipProdus) {
         this.id = id;
         this.denumire = denumire;
         this.calorii = calorii;
@@ -35,6 +36,15 @@ public abstract class Produs {
         this.pret = pret;
         this.imagine = imagine;
         this.descriere = descriere;
+        this.tipProdus = tipProdus;
+    }
+
+    public String getTipProdus() {
+        return tipProdus;
+    }
+
+    public void setTipProdus(String tipProdus) {
+        this.tipProdus = tipProdus;
     }
 
     public int getId() {
@@ -122,7 +132,7 @@ public abstract class Produs {
                 bauturaRs.close();
                 bauturaStmt.close();
             
-                Bautura bautura = new Bautura( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere , tip, calda);
+                Bautura bautura = new Bautura( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere, tipprodus, tip, calda);
                 
                 result.add(bautura);
             } else if (tipprodus.equals("Desert")) {
@@ -136,7 +146,7 @@ public abstract class Produs {
                 }
                 desertRs.close();
                 desertStmt.close();
-                Desert desert = new Desert( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere , tip);
+                Desert desert = new Desert( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere, tipprodus, tip);
                 result.add(desert);
             }else if (tipprodus.equals("Mancare")) {
                 int productId = id;
@@ -149,7 +159,7 @@ public abstract class Produs {
                 }
                 mancaretRs.close();
                 mancareStmt.close();
-                Mancare mancare = new Mancare( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere , stil);
+                Mancare mancare = new Mancare( id,  denumire,  calorii,  stoc,  pret,  imagine,  descriere, tipprodus, stil);
                 result.add(mancare);
         }
         

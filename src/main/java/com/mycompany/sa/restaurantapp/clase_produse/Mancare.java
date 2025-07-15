@@ -12,9 +12,17 @@ public class Mancare extends Produs{
     
     private String stil;
     
-    public Mancare(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere, String stil) {
-        super(id, denumire, calorii, stoc, pret, imagine, descriere);
+    public Mancare(int id, String denumire, int calorii, int stoc, double pret, String imagine, String descriere, String tipProdus, String stil) {
+        super(id, denumire, calorii, stoc, pret, imagine, descriere, tipProdus);
         this.stil = stil;
+    }
+
+    public String getTipProdus() {
+        return tipProdus;
+    }
+
+    public void setTipProdus(String tipProdus) {
+        this.tipProdus = tipProdus;
     }
 
     public String getStil() {

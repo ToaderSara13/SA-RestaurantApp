@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 public class SARestaurantApp extends JFrame{
     private CardLayout customLayout = new CardLayout();
     private JPanel customPanel;
+    Login login = new Login(this);
+    SignUp signUp = new SignUp(this);
+    MeniuPrincipal meniuPrincipal = new MeniuPrincipal(this);
     
     public SARestaurantApp() throws SQLException{
     initComponents();
@@ -25,6 +28,10 @@ public class SARestaurantApp extends JFrame{
      public void showPanel(String name) {
         customLayout.show(customPanel, name);
     }
+     
+     public MeniuPrincipal getMeniuPrincipal(){
+         return meniuPrincipal;
+     }
     private void initComponents() throws SQLException{
         
         setTitle("SA-RestaurantApp");
@@ -36,9 +43,7 @@ public class SARestaurantApp extends JFrame{
         
         
         customPanel = new JPanel(customLayout);
-        Login login = new Login(this);
-        SignUp signUp = new SignUp(this);
-        MeniuPrincipal meniuPrincipal = new MeniuPrincipal(this);
+        
         customPanel.add(login, "login");
         customPanel.add(signUp, "signUp");
         customPanel.add(meniuPrincipal, "meniuPrincipal");

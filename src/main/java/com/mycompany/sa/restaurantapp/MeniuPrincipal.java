@@ -5,6 +5,7 @@
 package com.mycompany.sa.restaurantapp;
 
 import com.mycompany.sa.restaurantapp.clase_produse.Produs;
+import com.mycompany.sa.restaurantapp.clase_produse.Utilizator;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -38,11 +39,40 @@ class MeniuPrincipal extends JPanel {
     private JButton acasa = new JButton("Acasa");
     private JButton produse = new JButton("Produse");
     private JButton cont = new JButton("Cont");
+    private JButton vanzari = new JButton("Vanzari");
+    private AcasaPanel acasaPanel = new AcasaPanel();
+    private VanzariPanel vanzariPanel = new VanzariPanel();
+    private ContPanel contPanel;
+    private UtilizatorPanel utilizatorPanel;
     
     public MeniuPrincipal(SARestaurantApp sara) throws SQLException{
         this.sara = sara;
-        initComponents();        
+        contPanel = new ContPanel(sara);
+        utilizatorPanel = new UtilizatorPanel(sara);
+        initComponents();  
+        incarcareUtilizator();
     }
+    public void acasaPanelVizibil(){
+        acasaPanel.setVisible(true);
+    }
+    
+    public void incarcareUtilizator(){
+        Utilizator utilizator = Sesiune.getUtilizatorCurent();
+        if(utilizator!=null){
+            if(!Sesiune.getUtilizatorCurent().getRol().toLowerCase().equals("admin")){
+                adaugaProdusPanelButton.setVisible(false);
+                vanzari.setVisible(false);
+                utilizatorPanel.setariContCurent();
+            }else{
+                adaugaProdusPanelButton.setVisible(true);
+                vanzari.setVisible(true);
+                contPanel.setariContCurent();
+            }
+        }
+        revalidate();
+        repaint();
+    }
+    
     private void initComponents() throws SQLException{
         setLayout(null);
         
@@ -53,22 +83,49 @@ class MeniuPrincipal extends JPanel {
         
         acasa.setVisible(true);
         acasa.setPreferredSize(new Dimension(100,50));
+        acasa.addMouseListener(acasaActiune());
         
         produse.setVisible(true);
         produse.setPreferredSize(new Dimension(100,50));
+        produse.addMouseListener(produseActiune());
         
         cont.setVisible(true);
         cont.setPreferredSize(new Dimension(100,50));
+        cont.addMouseListener(contActiune());
+        
+        
+        vanzari.setVisible(true);
+        vanzari.setPreferredSize(new Dimension(100, 50));
+        vanzari.addMouseListener(vanzariActiune());
         
         baraOptiuni.add(acasa);
         baraOptiuni.add(produse);
+        baraOptiuni.add(vanzari);
         baraOptiuni.add(cont);
+        
+        
+        acasaPanel.setBounds(0,50,1300,700);
+        acasaPanel.setVisible(true);
+        add(acasaPanel);
         
         produsePanel.setBounds(0,50,1300,700);
         produsePanel.setLayout(null);
         produsePanel.setBackground(Color.BLACK);
-        produsePanel.setVisible(true);
+        produsePanel.setVisible(false);
         add(produsePanel);
+        
+        vanzariPanel.setBounds(0,50,1300,700);
+        vanzariPanel.setVisible(false);
+        add(vanzariPanel);
+        
+        
+        contPanel.setBounds(0, 50, 1300, 700);
+        contPanel.setVisible(false);
+        add(contPanel);
+        
+        utilizatorPanel.setBounds(0, 50, 1300, 700);
+        utilizatorPanel.setVisible(false);
+        add(utilizatorPanel);
         
         vizualizareProdusePanel.setBounds(275, 80, 1000, 575);
         vizualizareProdusePanel.setVisible(true);
@@ -377,6 +434,57 @@ class MeniuPrincipal extends JPanel {
         
         
     }
+    
+    private MouseAdapter acasaActiune(){
+        return new MouseAdapter(){
+            public void mouseClicked(MouseEvent e ){
+                produsePanel.setVisible(false);
+                vanzariPanel.setVisible(false);
+                contPanel.setVisible(false);
+                acasaPanel.setVisible(true);
+            }
+        };
+    }
+    private MouseAdapter produseActiune(){
+        return new MouseAdapter(){
+            public void mouseClicked(MouseEvent e ){
+                acasaPanel.setVisible(false);
+                vanzariPanel.setVisible(false);
+                contPanel.setVisible(false);
+                utilizatorPanel.setVisible(false);
+                produsePanel.setVisible(true);
+            }
+        };
+    }    
+    private MouseAdapter vanzariActiune(){
+        return new MouseAdapter(){
+            public void mouseClicked(MouseEvent e ){
+                acasaPanel.setVisible(false);
+                produsePanel.setVisible(false);
+                contPanel.setVisible(false);
+                utilizatorPanel.setVisible(false);
+                vanzariPanel.setVisible(true);
+            }
+        };
+    }
+        private MouseAdapter contActiune(){
+        return new MouseAdapter(){
+            public void mouseClicked(MouseEvent e ){
+                acasaPanel.setVisible(false);
+                produsePanel.setVisible(false);
+                vanzariPanel.setVisible(false);
+                if(Sesiune.getUtilizatorCurent().getRol().toLowerCase().equals("admin"))
+                {
+                    contPanel.setVisible(true);
+                    utilizatorPanel.setVisible(false);
+                }else{
+                    utilizatorPanel.setVisible(true);
+                    contPanel.setVisible(false);
+                }
+                
+            }
+        };
+    }
     private boolean adaugaProdusPanelClicked = false;
     private MouseAdapter adaugaProdusPaneAction(JButton a){
         return new MouseAdapter(){
@@ -410,12 +518,14 @@ class MeniuPrincipal extends JPanel {
                     filtrarePanelHeight += animationSpeed;
                     if(filtrarePanelHeight >= maxFiltrarePanel){
                         filtrarePanelHeight = maxFiltrarePanel;
+                        adaugaProdusPanelButton.setVisible(false);
                         animationTimer.stop();
                     }      
                 }else{
                     filtrarePanelHeight -= animationSpeed;
                     if(filtrarePanelHeight <= 0){
                         filtrarePanelHeight = 0;
+                        adaugaProdusPanelButton.setVisible(true);
                         animationTimer.stop();
                     }
                 }
@@ -448,6 +558,7 @@ class MeniuPrincipal extends JPanel {
                         checkBoxBauturi.setVisible(false);
                         checkBoxCafea.setVisible(false);
                         checkBoxFrappe.setVisible(false);
+                        adaugaProdusPanelButton.setVisible(false);
                     }      
                 }else{
                     filtrarePanelHeight -= animationSpeed;
@@ -461,7 +572,10 @@ class MeniuPrincipal extends JPanel {
                         pretMaximBauturaText.setVisible(true);
                         checkBoxBauturi.setVisible(true);
                         checkBoxCafea.setVisible(true);
-                        checkBoxFrappe.setVisible(true);                       
+                        checkBoxFrappe.setVisible(true);  
+                        if(filtrareBauturaPanelOpen == false)
+                            adaugaProdusPanelButton.setVisible(true);
+                        
                     }
                 }
                 filtrareDesertPanel.setBounds(20, 170, 200, filtrarePanelHeight);

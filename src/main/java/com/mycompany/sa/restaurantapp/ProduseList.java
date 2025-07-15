@@ -11,7 +11,8 @@ import com.mycompany.sa.restaurantapp.clase_produse.Produs;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -62,6 +63,7 @@ public class ProduseList extends JPanel{
                         (filterFrappe && tip.equals("frappe"))) {
 
                         ProdusCard card = new ProdusCard(b.getDenumire(),b.getPret(),b.getImagine());
+                        card.addMouseListener(isClicked(p));
                         productsContainer.add(card);
                     }
                 }
@@ -106,6 +108,7 @@ public class ProduseList extends JPanel{
                         (filterInghetata && tip.equals("inghetata"))) {
 
                         ProdusCard card = new ProdusCard(d.getDenumire(),d.getPret(),d.getImagine());
+                        card.addMouseListener(isClicked(p));
                         productsContainer.add(card);
                     }
                 }
@@ -151,6 +154,7 @@ public class ProduseList extends JPanel{
                             (filterRomanesc && stil.equals("romanesc"))) {
 
                             ProdusCard card = new ProdusCard(m.getDenumire(),m.getPret(),m.getImagine());
+                            card.addMouseListener(isClicked(p));
                             productsContainer.add(card);
                         }
                     }
@@ -172,6 +176,7 @@ public class ProduseList extends JPanel{
         if(minPrice == 0 && maxPrice == 0 && minRating == 0 && maxRating == 0){
             for (Produs p : list) {
                 ProdusCard card = new ProdusCard(p.getDenumire(),p.getPret(),p.getImagine());
+                card.addMouseListener(isClicked(p));
                 productsContainer.add(card);
             }
             productsContainer.revalidate();
@@ -192,6 +197,7 @@ public class ProduseList extends JPanel{
         }
         if (matches == true) {
             ProdusCard card = new ProdusCard(p.getDenumire(),p.getPret(),p.getImagine());
+            card.addMouseListener(isClicked(p));
             productsContainer.add(card);
         }
     }
@@ -207,12 +213,14 @@ public class ProduseList extends JPanel{
         for (Produs p : productList) {
             if (p.getDenumire().toLowerCase().contains(searchLower)) {
                 ProdusCard card = new ProdusCard(p.getDenumire(),p.getPret(),p.getImagine());
+                card.addMouseListener(isClicked(p));
                 productsContainer.add(card);
             }
         }
         if (searchString.equalsIgnoreCase("Search")) {
             for (Produs p : productList) {
                 ProdusCard card = new ProdusCard(p.getDenumire(),p.getPret(),p.getImagine());
+                card.addMouseListener(isClicked(p));
                 productsContainer.add(card);
             }
         }
@@ -224,11 +232,10 @@ public class ProduseList extends JPanel{
     
     
     public void filtrareListaProduse(String type, String price, List<Produs> productList) {
-        productsContainer.removeAll();  // unde productsContainer este containerul vizual cu produse
+        productsContainer.removeAll();  
 
         List<Produs> filteredList = new ArrayList<>();
 
-        // Filtrare după tip produs
         for (Produs p : productList) {
             if (type.equals("All")) {
                 filteredList.add(p);
@@ -240,28 +247,51 @@ public class ProduseList extends JPanel{
                 filteredList.add(p);
             }
         }
-
-        // Sortare după preț
         if (price.equals("Crescator")) {
             filteredList.sort(Comparator.comparingDouble(Produs::getPret));
         } else if (price.equals("Descrescator")) {
             filteredList.sort(Comparator.comparingDouble(Produs::getPret).reversed());
         }
 
-        // Afișare produse filtrate
         for (Produs p : filteredList) {
-            // Creezi aici un panou pentru fiecare produs (în funcție de implementarea ta)
             ProdusCard card = new ProdusCard(p.getDenumire(),p.getPret(),p.getImagine());
+            card.addMouseListener(isClicked(p));
             productsContainer.add(card);
         }
 
         productsContainer.revalidate();
         productsContainer.repaint();
 
-        listaFiltrata.clear();           // dacă folosești o listă vizibilă curent
+        listaFiltrata.clear();           
         listaFiltrata.addAll(filteredList);
     }
 
+    private MouseAdapter isClicked(Produs p){
+        return new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                remove(vizualizareProdus); 
+                vizualizareProdus = new VizualizareProdus(p, ProduseList.this, scrollPane); 
+                vizualizareProdus.setBounds(0, 0, 970, 600); 
+                
+                vizualizareProdus.stergereModificareBackBuyTrue();
+                vizualizareProdus.setVisible(true);
+                add(vizualizareProdus); 
+                scrollPane.setVisible(false);
+
+                revalidate();
+                repaint();
+                
+            }
+        };
+    }
+    
+    public void scrollPaneTrue(){
+        scrollPane.setVisible(true);
+        revalidate();
+        repaint();
+    }
+    
+    
     
     public ProduseList (List<Produs> produseList){
         setLayout(new BorderLayout());
@@ -271,14 +301,18 @@ public class ProduseList extends JPanel{
 
         for (Produs p : produseList) { 
             ProdusCard card = new ProdusCard(p.getDenumire(), p.getPret(), p.getImagine());
+            card.addMouseListener(isClicked(p));
             productsContainer.add(card);
+            
         }
 
-        JScrollPane scrollPane = new JScrollPane(productsContainer);
+        scrollPane = new JScrollPane(productsContainer);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBackground(Color.BLACK);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
         add(scrollPane, BorderLayout.CENTER);
     }
     private JPanel productsContainer = new JPanel();
-    
+    private  JScrollPane scrollPane;
+    private VizualizareProdus vizualizareProdus = new VizualizareProdus();
 }

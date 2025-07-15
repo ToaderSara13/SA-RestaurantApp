@@ -30,4 +30,14 @@ public class ImagineButon extends JButton{
             setIcon(new ImageIcon(scaledImage));
         }
     }
+     public void imagineNoua(String imagine, int width, int height){
+         URL iconUrl = getClass().getClassLoader().getResource(imagine);
+        this.width = width;
+        this.height= height;
+        if (iconUrl != null) {
+            ImageIcon originalIcon = new ImageIcon(iconUrl);
+            Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            setIcon(new ImageIcon(scaledImage));
+        }
+     }
 }
