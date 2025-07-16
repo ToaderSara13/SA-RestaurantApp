@@ -29,12 +29,22 @@ public class AcasaPanel extends JPanel{
         setLayout(null);
         setBackground(new Color(10, 15, 20));
         
-        ImagineCard imagine = new ImagineCard("images/imagine_acasa.jpg", 500, 500);
+        ImagineCard imagine = new ImagineCard("images/pagAcs.png", 500, 500);
         imagine.setBounds(100, 100, 500, 500);
         imagine.setVisible(true);
         add(imagine);
         
-        JTextArea descriereArea = new JTextArea("descriere");
+        JTextArea descriereArea = new JTextArea("Bine ai venit la SA-Restaurant – locul unde gustul întâlnește rafinamentul.\n" +
+"\n" +
+"Aici, fiecare preparat este mai mult decât o simplă rețetă – este o poveste, o experiență și o promisiune de calitate. Fie că îți dorești o porție de paste inspirate din bucătăria italiană, o friptură suculentă gătită cu grijă sau un desert fin care să-ți încheie ziua perfect, ai ajuns în locul potrivit.\n" +
+"\n" +
+"Interfața noastră modernă îți oferă acces rapid la un meniu variat, organizat clar și intuitiv. Poți filtra produsele după preferințe, stil culinar sau preț, astfel încât să găsești mereu ceea ce ți se potrivește.\n" +
+"\n" +
+"Aplicația SA-Restaurant este creată special pentru a oferi o experiență digitală plăcută, eficientă și adaptată nevoilor tale. Fie că ești client obișnuit sau administrator, fiecare secțiune este gândită să fie clară, ușor de folosit și estetică.\n" +
+"\n" +
+"În spatele fiecărui click se află muncă, pasiune și dorința de a transforma o simplă aplicație într-un partener de încredere atunci când vine vorba de alegerea mesei perfecte.\n" +
+"\n" +
+"Bucură-te de rafinament, simplitate și gust. Bine ai venit în familia SA-Restaurant.");
         descriereArea.setBackground(new Color(10,15,20));
         descriereArea.setForeground(Color.WHITE);
         descriereArea.setFont(new Font("Segoe UI", Font.ITALIC, 20));

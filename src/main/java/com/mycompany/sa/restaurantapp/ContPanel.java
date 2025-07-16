@@ -51,7 +51,7 @@ public class ContPanel extends JPanel{
         
         emailLabel.setVisible(true);
         emailLabel.setBounds(50, 50, 200, 50);
-        emailLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        emailLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         emailLabel.setForeground(new Color(102, 100, 204));
         add(emailLabel);
         
@@ -59,7 +59,7 @@ public class ContPanel extends JPanel{
         emailText.setBounds(220, 50, 230, 50);
         emailText.setBackground(new Color(10,25,40));
         emailText.setForeground(Color.CYAN);
-        emailText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        emailText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         emailText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         emailText.setVisible(true);
         emailText.setEditable(false);
@@ -68,7 +68,7 @@ public class ContPanel extends JPanel{
         
         parolaLabel.setVisible(true);
         parolaLabel.setBounds(50, 150, 200, 50);
-        parolaLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        parolaLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         parolaLabel.setForeground(new Color(102, 100, 204));
         add(parolaLabel);
         
@@ -76,7 +76,7 @@ public class ContPanel extends JPanel{
         parolaText.setBounds(220, 150, 230, 50);
         parolaText.setBackground(new Color(10,25,40));
         parolaText.setForeground(Color.CYAN);
-        parolaText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        parolaText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         parolaText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         parolaText.setVisible(true);
         parolaText.setEditable(false);
@@ -85,7 +85,7 @@ public class ContPanel extends JPanel{
         
         rolLabel.setVisible(true);
         rolLabel.setBounds(50, 250, 200, 50);
-        rolLabel.setFont(new Font("Courier New", Font.BOLD, 30));
+        rolLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
         rolLabel.setForeground(new Color(102, 100, 204));
         add(rolLabel);
         
@@ -93,7 +93,7 @@ public class ContPanel extends JPanel{
         rolText.setBounds(220, 250, 230, 50);
         rolText.setBackground(new Color(10,25,40));
         rolText.setForeground(Color.CYAN);
-        rolText.setFont(new Font("Courier New", Font.ITALIC, 20));
+        rolText.setFont(new Font("Segoe UI", Font.ITALIC, 20));
         rolText.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         rolText.setVisible(true);
         rolText.setEditable(false);
@@ -112,7 +112,7 @@ public class ContPanel extends JPanel{
        
         schimbaDate.setVisible(true);
         schimbaDate.setForeground(Color.CYAN);
-        schimbaDate.setFont(new Font("Arial", Font.BOLD, 15));
+        schimbaDate.setFont(new Font("Segoe UI", Font.BOLD, 15));
         schimbaDate.setBackground(new Color(10,25,40));
         schimbaDate.setOpaque(true);
         schimbaDate.setContentAreaFilled(true);           
@@ -125,7 +125,7 @@ public class ContPanel extends JPanel{
         
         saveChanges.setVisible(false);
         saveChanges.setForeground(Color.CYAN);
-        saveChanges.setFont(new Font("Arial", Font.BOLD, 15));
+        saveChanges.setFont(new Font("Segoe UI", Font.BOLD, 15));
         saveChanges.setBackground(new Color(10,80,40));
         saveChanges.setOpaque(true);
         saveChanges.setContentAreaFilled(true);           
@@ -138,7 +138,7 @@ public class ContPanel extends JPanel{
         
         cancelChanges.setVisible(false);
         cancelChanges.setForeground(Color.CYAN);
-        cancelChanges.setFont(new Font("Arial", Font.BOLD, 15));
+        cancelChanges.setFont(new Font("Segoe UI", Font.BOLD, 15));
         cancelChanges.setBackground(new Color(80,25,40));
         cancelChanges.setOpaque(true);
         cancelChanges.setContentAreaFilled(true);           
@@ -151,7 +151,7 @@ public class ContPanel extends JPanel{
         
         logout.setVisible(true);
         logout.setForeground(Color.CYAN);
-        logout.setFont(new Font("Arial", Font.BOLD, 20));
+        logout.setFont(new Font("Segoe UI", Font.BOLD, 20));
         logout.setBackground(new Color(80,25,40));
         logout.setOpaque(true);
         logout.setContentAreaFilled(true);           

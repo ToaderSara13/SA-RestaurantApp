@@ -60,7 +60,7 @@ public class ProdusCard extends JPanel{
         */
         
         
-        pretLabel = new JLabel("Pret: " + pret + "$");
+        pretLabel = new JLabel("Pret: " + pret + " RON");
         pretLabel.setHorizontalAlignment(JLabel.CENTER);
         pretLabel.setPreferredSize(new Dimension(270, 50));
         pretLabel.setForeground(new Color(255, 114, 118));

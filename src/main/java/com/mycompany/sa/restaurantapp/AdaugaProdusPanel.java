@@ -287,7 +287,7 @@ public class AdaugaProdusPanel extends JPanel{
         
         cancelProdus.setVisible(true);
         cancelProdus.setForeground(Color.WHITE);
-        cancelProdus.setFont(new Font("Arial", Font.BOLD, 15));
+        cancelProdus.setFont(new Font("Segoe UI", Font.BOLD, 15));
         cancelProdus.setBackground(new Color(80,25,40));
         cancelProdus.setOpaque(true);
         cancelProdus.setContentAreaFilled(true);           
